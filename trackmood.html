@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Mood</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #1E3A8A; /* Blue background */
+    }
+    .mood-option:hover {
+      transform: scale(1.05);
+      background-color: #2563EB; /* Hover effect with a lighter blue */
+      cursor: pointer;
+    }
+    .mood-history-item:hover {
+      transform: scale(1.05);
+      background-color: #2563EB; /* Blue background on hover for mood history */
+      cursor: pointer;
+    }
+    .mood-button {
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .mood-history-item {
+      color: black; /* Set text color to black for mood history items */
+    }
+    /* Set text color to black inside mood option boxes */
+    .mood-option div {
+      color: black; /* Text color inside mood options */
+    }
+  </style>
+</head>
+<body class="text-white">
+  <div class="w-full min-h-screen p-10 space-y-10">
+    <!-- Header Section -->
+    <div class="text-center">
+      <h1 class="text-4xl font-bold text-white">Track Your Mood 🧠</h1>
+      <p class="text-xl text-gray-200">Monitor how you're feeling every day 😊</p>
+    </div>
+
+    <!-- Mood Tracker Form -->
+    <div class="max-w-md mx-auto bg-white/80 p-6 rounded-lg shadow-lg backdrop-blur-xl">
+      <h2 class="text-2xl font-semibold text-blue-600">How are you feeling today? 🌞</h2>
+      
+      <!-- Mood Options -->
+      <div class="grid grid-cols-2 gap-4 mt-6">
+        <div class="p-6 rounded-lg bg-gray-200 mood-option mood-button" data-mood="happy">
+          <div class="text-center text-4xl">😊</div>
+          <div class="text-center text-xl">Happy</div>
+        </div>
+        <div class="p-6 rounded-lg bg-gray-200 mood-option mood-button" data-mood="neutral">
+          <div class="text-center text-4xl">😐</div>
+          <div class="text-center text-xl">Neutral</div>
+        </div>
+        <div class="p-6 rounded-lg bg-gray-200 mood-option mood-button" data-mood="sad">
+          <div class="text-center text-4xl">😢</div>
+          <div class="text-center text-xl">Sad</div>
+        </div>
+        <div class="p-6 rounded-lg bg-gray-200 mood-option mood-button" data-mood="angry">
+          <div class="text-center text-4xl">😡</div>
+          <div class="text-center text-xl">Angry</div>
+        </div>
+        <div class="p-6 rounded-lg bg-gray-200 mood-option mood-button" data-mood="stressed">
+          <div class="text-center text-4xl">😓</div>
+          <div class="text-center text-xl">Stressed</div>
+        </div>
+      </div>
+
+      <!-- Mood Note -->
+      <div class="mt-6">
+        <label for="notes" class="block text-gray-700">Additional Notes (optional)</label>
+        <textarea id="notes" rows="4" class="w-full px-4 py-2 rounded-lg bg-gray-200 text-gray-700" placeholder="Describe how you're feeling..."></textarea>
+      </div>
+
+      <!-- Save Mood Button -->
+      <button id="saveMoodBtn" class="w-full py-2 bg-blue-500 rounded-xl hover:bg-blue-600 text-white font-semibold mt-6">
+        Save Mood 📅
+      </button>
+    </div>
+
+    <!-- Mood History Section -->
+    <div class="max-w-md mx-auto mt-10 bg-white/80 p-6 rounded-lg shadow-lg backdrop-blur-xl">
+      <h2 class="text-2xl font-semibold text-blue-600">Your Mood History 📊</h2>
+      <p class="text-gray-700 mt-3">See how your mood has evolved over time.</p>
+      <!-- Example Mood History -->
+      <ul id="moodHistoryList" class="space-y-2 mt-4">
+        <li class="p-4 bg-gray-100 rounded-lg mood-history-item">January 1st: 😊 Happy</li>
+        <li class="p-4 bg-gray-100 rounded-lg mood-history-item">January 2nd: 😐 Neutral</li>
+        <li class="p-4 bg-gray-100 rounded-lg mood-history-item">January 3rd: 😢 Sad</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Handle Mood Selection
+    const moodOptions = document.querySelectorAll('.mood-option');
+    let selectedMood = '';
+
+    moodOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        selectedMood = option.getAttribute('data-mood');
+        moodOptions.forEach(option => option.classList.remove('bg-blue-500', 'text-white')); // Reset previous selection
+        option.classList.add('bg-blue-500', 'text-white'); // Highlight selected option
+        console.log('Mood selected:', selectedMood);
+      });
+    });
+
+    // Save Mood Action
+    document.getElementById('saveMoodBtn').addEventListener('click', () => {
+      if (!selectedMood) {
+        alert('Please select a mood before saving.');
+        return;
+      }
+      const notes = document.getElementById('notes').value;
+      const moodHistoryList = document.getElementById('moodHistoryList');
+      const date = new Date().toLocaleDateString();
+      const moodEntry = `<li class="p-4 bg-gray-100 rounded-lg mood-history-item">${date}: ${selectedMood === 'happy' ? '😊 Happy' : selectedMood === 'neutral' ? '😐 Neutral' : selectedMood === 'sad' ? '😢 Sad' : selectedMood === 'angry' ? '😡 Angry' : '😓 Stressed'}</li>`;
+      moodHistoryList.insertAdjacentHTML('beforeend', moodEntry); // Add the new mood entry
+      alert('Mood recorded successfully!');
+    });
+  </script>
+</body>
+</html>

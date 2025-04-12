@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set Academic & Wellness Goals</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Background Image & Overlay */
+.background {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Header Styling */
+.header {
+  text-align: center;
+  padding: 50px;
+  color: #fff;
+}
+
+.header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 1.2rem;
+}
+
+/* Goal Cards Section */
+.goals-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 50px;
+  flex-wrap: wrap;
+}
+
+/* Individual Goal Card Styling */
+.goal-card {
+  background: #fff;
+  width: 280px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  margin: 20px;
+}
+
+.goal-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  background-color: #f1f8ff;
+}
+
+.goal-icon img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+input[type="text"], input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+button.goal-btn {
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button.goal-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Footer Styling */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f1f1f1;
+  font-size: 1rem;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Background Image -->
+  <div class="background">
+    <img src="https://images.unsplash.com/photo-1500597023217-25731d56615b?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjA0fDB8MHxwaG90by1wYWdlfHx8fHx8fHwxNjg5OTI1Njk3&ixlib=rb-4.0.3&q=80&w=1080" alt="Relaxing Scenery" class="background-image">
+    <div class="overlay"></div>
+  </div>
+
+  <header class="header">
+    <h1>Set Your Goals 📈💪</h1>
+    <p>Empower yourself academically and focus on your mental wellness.</p>
+  </header>
+
+  <section class="goals-container">
+    <!-- Academic Goal Card -->
+    <div class="goal-card academic-goal">
+      <div class="goal-icon">
+        <img src="https://img.icons8.com/ios-filled/50/000000/books.png" alt="Books Icon">
+      </div>
+      <h2>Academic Goals 📚</h2>
+      <p>Set your study targets, assignments, and track progress.</p>
+      <form id="academicForm">
+        <input type="text" placeholder="What is your academic goal?" id="academicGoal" required />
+        <input type="date" id="academicGoalDate" required />
+        <button type="submit" class="goal-btn">Set Academic Goal</button>
+      </form>
+    </div>
+
+    <!-- Wellness Goal Card -->
+    <div class="goal-card wellness-goal">
+      <div class="goal-icon">
+        <img src="https://img.icons8.com/ios-filled/50/000000/meditation.png" alt="Meditation Icon">
+      </div>
+      <h2>Wellness Goals 🧘‍♀️</h2>
+      <p>Focus on mindfulness, mental health, and self-care.</p>
+      <form id="wellnessForm">
+        <input type="text" placeholder="What is your wellness goal?" id="wellnessGoal" required />
+        <input type="date" id="wellnessGoalDate" required />
+        <button type="submit" class="goal-btn">Set Wellness Goal</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>Empower your future, one goal at a time! 🌟</p>
+  </footer>
+
+</body>
+</html>

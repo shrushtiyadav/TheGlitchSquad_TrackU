@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Mental Wellness & Productivity Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #c3c3e2, #f7f5fa);
+  overflow: hidden;
+  z-index: -1;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -150px;
+  width: 40px;
+  height: 40px;
+  background: solid rgb(99, 8, 184);
+  border-radius: 50%;
+  animation: rise 20s infinite ease-in;
+}
+
+.bubble:nth-child(1) {
+  left: 20%;
+  width: 60px;
+  height: 60px;
+  animation-duration: 25s;
+}
+
+.bubble:nth-child(2) {
+  left: 40%;
+  width: 40px;
+  height: 40px;
+  animation-duration: 20s;
+}
+
+.bubble:nth-child(3) {
+  left: 60%;
+  width: 70px;
+  height: 70px;
+  animation-duration: 30s;
+}
+
+.bubble:nth-child(4) {
+  left: 80%;
+  width: 50px;
+  height: 50px;
+  animation-duration: 22s;
+}
+
+.bubble:nth-child(5) {
+  left: 30%;
+  width: 30px;
+  height: 30px;
+  animation-duration: 18s;
+}
+
+@keyframes rise {
+  0% {
+    bottom: -100px;
+    transform: translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(50px) rotate(180deg);
+  }
+  100% {
+    bottom: 120%;
+    transform: translateX(-50px) rotate(360deg);
+  }
+}
+
+header {
+  text-align: center;
+  padding: 50px 20px 20px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #2b08dc;
+}
+
+header p {
+  font-size: 1.2rem;
+  color:solid rgb(59, 18, 184);
+  margin-top: 10px;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  text-align: center;
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card h2 {
+  padding: 15px;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.6);
+  border: 2px solid #007bff;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  header p {
+    font-size: 1rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="background">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+
+  <header>
+    <h1>Student Mental Wellness & Productivity Tracker</h1>
+    <p>Boost Your Mind, Body, and Study Game!</p>
+  </header>
+
+  <section class="cards-container">
+    <div class="card">
+        <img src="https://as1.ftcdn.net/v2/jpg/11/52/28/84/1000_F_1152288486_2wJtMYDM6RBxvqaiwY6YgjBv9AqKvM3l.jpg" alt="Meditation">
+      <h2>Meditation</h2>
+    </div>
+
+    <div class="card">
+      <img src="https://www.shutterstock.com/image-photo/student-desk-girl-makes-notes-260nw-2187268981.jpg" alt="Study Planner">
+      <h2>Study Planner</h2>
+    </div>
+
+    <div class="card">
+      <img src="https://www.dignityhealth.org/content/dam/dignity-health/images/skyword/articles/allover-wellness-benefits-of-yoga-for-heart-health.jpg.thumb.628.1116./jcr:content/renditions/cq5dam.web." alt="Exercise Routine">
+      <h2>Exercise Routine</h2>
+    </div>
+
+    <div class="card">
+      <img src="https://www.saatva.com/blog/wp-content/uploads/2021/01/cb0c9548-e75a-4b02-ad50-1f49085564ce_best-sleep-tracker-app-main-4.jpg" alt="Sleep Tracker">
+      <h2>Sleep Tracker</h2>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60" alt="Mental Health Check">
+      <h2>Mental Health Check</h2>
+    </div>
+
+    <div class="card">
+      <img src="https://lovinglifeco.com/wp-content/uploads/2023/08/goal-setting-plan-written-on-post-it-notes.jpg" alt="Daily Goals">
+      <h2>Daily Goals</h2>
+    </div>
+  </section>
+
+</body>
+</html>

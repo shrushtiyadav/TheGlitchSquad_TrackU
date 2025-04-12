@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - WellnessTracker</title>
+
+  <!-- Internal CSS -->
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      background: url('https://i.pinimg.com/736x/3c/24/46/3c24462450c2a902bf7e18f3d9aada81.jpg') no-repeat center center/cover;
+      background-size: cover;
+    }
+
+    /* Create a semi-transparent blur effect for the content area only */
+    .signup-container {
+      background-color: rgba(179, 176, 176, 0.8); /* White with some transparency */
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      position: relative;
+      backdrop-filter: blur(10px); /* Apply the blur effect */
+      z-index: 2;
+    }
+
+    header {
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 16px 32px;
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      right: 16px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 3;
+    }
+
+    header h1 {
+      color: #2563eb;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav a {
+      display: inline-block;
+      background-color: #e5e7eb;
+      padding: 12px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 16px;
+      color: #4b5563;
+      margin-left: 16px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #2563eb;
+      color: white;
+    }
+
+    .signup-container h2 {
+      color: #2563eb;
+      font-size: 28px;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: #4b5563;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #f9fafb;
+      margin-top: 8px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #2563eb;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      background-color: #2563eb;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #1d4ed8;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #ffffff;
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid #e5e7eb;
+      color: #6b7280;
+      font-size: 14px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Sign Up Section -->
+  <section class="signup-container">
+    <h2>Create Your Account</h2>
+
+    <!-- Name Input -->
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+    </div>
+
+    <!-- Email Input -->
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    </div>
+
+    <!-- Password Input -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Create a password" required>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="submit-btn">Sign Up</button>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 WellnessTracker. All rights reserved.
+  </footer>
+
+</body>
+</html>

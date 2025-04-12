@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Student Mental Wellness & Productivity Tracker</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-image: url('https://i.pinimg.com/736x/3c/24/46/3c24462450c2a902bf7e18f3d9aada81.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-black/60">
+  <div class="w-full max-w-md p-8 space-y-6 bg-white/90 backdrop-blur-lg rounded-3xl shadow-2xl">
+    <h2 class="text-3xl font-bold text-center text-blue-700">Welcome Back!</h2>
+    <p class="text-center text-gray-600">Sign in to continue tracking your wellness and productivity 🌿</p>
+    <form class="space-y-5">
+      <div>
+        <label class="block mb-1 text-sm font-semibold text-gray-700">Email</label>
+        <input type="email" required class="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm font-semibold text-gray-700">Password</label>
+        <input type="password" required class="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50">
+      </div>
+      <button type="submit" class="w-full px-4 py-2 text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-green-400 rounded-xl hover:opacity-90">
+        Login
+      </button>
+      <p class="text-sm text-center text-gray-700">
+        Don't have an account? <a href="#" class="text-blue-600 hover:underline">Sign Up</a>
+      </p>
+    </form>
+  </div>
+</body>
+</html>
