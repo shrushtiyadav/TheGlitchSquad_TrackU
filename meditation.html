@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meditation Guide</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      background-color: #f9f9f9;
+    }
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #c3c3e2, #f7f5fa);
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -150px;
+      background: #1E3A8A;
+      border-radius: 50%;
+      animation: rise 20s infinite ease-in;
+    }
+
+    .bubble:nth-child(1) { left: 10%; width: 60px; height: 60px; animation-duration: 25s; }
+    .bubble:nth-child(2) { left: 30%; width: 40px; height: 40px; animation-duration: 22s; }
+    .bubble:nth-child(3) { left: 50%; width: 70px; height: 70px; animation-duration: 30s; }
+    .bubble:nth-child(4) { left: 70%; width: 50px; height: 50px; animation-duration: 24s; }
+    .bubble:nth-child(5) { left: 90%; width: 30px; height: 30px; animation-duration: 20s; }
+
+    @keyframes rise {
+      0% { bottom: -100px; transform: translateX(0) rotate(0deg); }
+      50% { transform: translateX(50px) rotate(180deg); }
+      100% { bottom: 120%; transform: translateX(-50px) rotate(360deg); }
+    }
+
+    header {
+      background-color: #ffffff;
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      color: #1E3A8A;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    nav a {
+      background-color: #e5e7eb;
+      padding: 10px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 16px;
+      color: #4b5563;
+      margin-left: 16px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #2563eb;
+      color: white;
+    }
+
+    .hero {
+      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuCjZXxpVRlDLBmVCXQKsizqryJMsiboNrng&s');
+      background-size: cover;
+      background-position: center;
+      height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+
+    .meditation-container {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .meditation-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .meditation-step {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .meditation-step:hover {
+      transform: translateY(-10px);
+    }
+
+    .meditation-step img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .meditation-step h3 {
+      color: #1E3A8A;
+      margin-bottom: 10px;
+    }
+
+    .meditation-step p {
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: #6b7280;
+      padding: 20px;
+      background-color: #f1f1f1;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-end;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Bubbles Background -->
+  <div class="background">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <h1 onclick="window.location.href='index.html'">Track U</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+      <a href="profilesetting.html">Profile</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>🧘‍♀️ Meditation Guide</h1>
+      <p>"Quiet the mind, and the soul will speak."</p>
+    </div>
+  </section>
+
+  <!-- Instructions -->
+  <section class="meditation-container">
+    <div class="meditation-grid">
+      
+      <div class="meditation-step">
+        <img src="https://www.shutterstock.com/image-photo/glade-park-recreation-place-picnic-260nw-1056261257.jpg" alt="Find a calm space">
+        <h3>1. Find a Quiet Place</h3>
+        <p>Choose a calm and peaceful location where you won't be disturbed.</p>
+      </div>
+
+      <div class="meditation-step">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBczL_CfWzgDnu7N9UZF2YcD4b8zLmddDeaA&s" alt="Sit comfortably">
+        <h3>2. Sit Comfortably</h3>
+        <p>Sit in a relaxed position with your back straight and shoulders relaxed.</p>
+      </div>
+
+      <div class="meditation-step">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVSLKHVUzmvXds5txqtfUmgQhEHo27XOj8Mw&s" alt="Focus on breathing">
+        <h3>3. Focus on Your Breath</h3>
+        <p>Take deep breaths in and out. Notice the flow of air and stay present.</p>
+      </div>
+
+      <div class="meditation-step">
+        <img src="https://i.pinimg.com/564x/3f/17/09/3f1709b983034cb3bed843cb5a0b2af6.jpg" alt="Let thoughts pass">
+        <h3>4. Let Thoughts Pass</h3>
+        <p>If thoughts arise, acknowledge them and gently return to your breath.</p>
+      </div>
+
+      <div class="meditation-step">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQslsF9ublZuvFa8_pLBwJBA2X7erH2MS_UFQ&s" alt="Start with short time">
+        <h3>5. Start Small</h3>
+        <p>Begin with 5–10 minutes a day and gradually increase your time.</p>
+      </div>
+
+      <div class="meditation-step">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv_ZsGFXIo_P8vJezCJh6nf9Z1PxOfOrDVRg&s" alt="Practice regularly">
+        <h3>6. Be Consistent</h3>
+        <p>Consistency is key. Meditate daily to build focus, calm, and clarity.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Track U. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

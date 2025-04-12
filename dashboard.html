@@ -12,13 +12,155 @@
       background-position: center;
       background-repeat: no-repeat;
     }
+
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      color: #1E3A8A;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav a {
+      display: inline-block;
+      background-color: #e5e7eb;
+      padding: 12px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 16px;
+      color: #4b5563;
+      margin-left: 16px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #2563eb;
+      color: white;
+    }
+
+    .contact-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: calc(100vh - 80px); /* Adjusting for header height */
+      padding: 60px 20px;
+    }
+
+    .contact-box {
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      max-width: 500px;
+      text-align: center;
+    }
+
+    .contact-box h2 {
+      color: white;
+      margin-bottom: 16px;
+      font-size: 28px;
+      padding: 12px 32px;
+      background-color: #1E3A8A;
+      border-radius: 50px;
+      display: inline-block;
+    }
+
+    .contact-box p {
+      color: #374151;
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    .contact-box .phone {
+      font-size: 20px;
+      font-weight: bold;
+      color: #2563eb;
+      margin: 15px 0;
+    }
+
+    .contact-box a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      display: inline-block;
+    }
+
+    .contact-box a::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      backdrop-filter: blur(10px);
+      border-radius: 50px;
+      z-index: -1;
+      transition: all 0.3s ease;
+      transform: scaleX(0);
+      transform-origin: right;
+    }
+
+    .contact-box a:hover::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .contact-box a:hover {
+      color: #5c9eed;
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: #6b7280;
+      padding: 20px;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 8px 0;
+        text-align: center;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
   </style>
+
 </head>
+<header>
+  <h1 onclick="window.location.href='index.html'">Track U</h1>
+  <nav>
+    <a href="login.html">Login</a>
+    <a href="profilesetting.html">Profile</a>
+    <a href="contact.html">Contact</a>
+    <a href="about.html">About</a>
+  </nav>
+  
+</header>
+
 <body class="bg-black/60 text-white">
   <div class="w-full min-h-screen p-10 space-y-10 bg-black/50 backdrop-blur-xl">
     <!-- Header Section -->
     <div class="text-center">
-      <h1 class="text-4xl font-bold text-blue-400">Welcome, [Student Name]</h1>
+      <h1 class="text-4xl font-bold text-blue-400">Welcome</h1>
       <p class="text-xl text-gray-200">Your Wellness & Productivity Dashboard</p>
     </div>
 
@@ -28,24 +170,29 @@
       <div class="bg-white/80 p-6 rounded-lg shadow-lg backdrop-blur-xl">
         <h2 class="text-2xl font-semibold text-blue-600">Mental Health Tracker</h2>
         <p class="text-gray-700 mt-3">Track your daily mood and well-being.</p>
-        <img src="https://images.unsplash.com/photo-1513916761436-49867647cf98?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjUyOXwwfDF8c2VhY2h8Mnx8Y3VsdHVyYWwlMjB0aGVyYXB5fGVufDB8fHx8fDE2NTkwMTg2NzA&ixlib=rb-1.2.1&q=80&w=1080" alt="Mental Health" class="mt-4 w-full h-64 object-cover rounded-lg">
-        <button class="mt-4 w-full py-2 bg-blue-500 rounded-xl hover:bg-blue-600 text-white font-semibold">Track Mood</button>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-YrDWdE9Ruf-m9ValpjbVFZoQe3ls_cJ5aw&s" alt="Mental Health" class="mt-4 w-full h-64 object-cover rounded-lg">
+        <a href="trackmood.html">
+        <button class="mt-4 w-full py-2 bg-blue-500 rounded-xl hover:bg-blue-600 text-white font-semibold">Track Mood</button></a>
       </div>
 
       <!-- Goals Section -->
       <div class="bg-white/80 p-6 rounded-lg shadow-lg backdrop-blur-xl">
         <h2 class="text-2xl font-semibold text-blue-600">Your Goals</h2>
         <p class="text-gray-700 mt-3">Set goals to enhance your productivity and well-being.</p>
-        <img src="https://images.unsplash.com/photo-1507676077613-7b9b6b0a1467?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjUyOXwwfDF8c2VhY2h8NXx8Z29hbHxlbnwwfHx8fDE2NTkwMTg2NzA&ixlib=rb-1.2.1&q=80&w=1080" alt="Productivity Goals" class="mt-4 w-full h-64 object-cover rounded-lg">
-        <button class="mt-4 w-full py-2 bg-blue-500 rounded-xl hover:bg-blue-600 text-white font-semibold">Set New Goal</button>
+        <img src="https://www.shutterstock.com/image-photo/nan-implementation-2024-goal-plan-600nw-2320841125.jpg" alt="Productivity Goals" class="mt-4 w-full h-64 object-cover rounded-lg">
+        <a href="goalsetting.html">
+        <button class="mt-4 w-full py-2 bg-blue-500 rounded-xl hover:bg-blue-600 text-white font-semibold">Set New Goal</button></a>
+
       </div>
 
       <!-- To-Do List Section -->
       <div class="bg-white/80 p-6 rounded-lg shadow-lg backdrop-blur-xl">
         <h2 class="text-2xl font-semibold text-blue-600">To-Do List</h2>
         <p class="text-gray-700 mt-3">Stay organized with your daily tasks and assignments.</p>
-        <img src="https://images.unsplash.com/photo-1582719475230-59066d6594f0?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjUyOXwwfDF8c2VhY2h8NXx8dG9kbyUyMGxpc3R8ZW58MHx8fHx8fDE2NTkwMTg2NzA&ixlib=rb-1.2.1&q=80&w=1080" alt="To-Do List" class="mt-4 w-full h-64 object-cover rounded-lg">
+        <img src="https://t3.ftcdn.net/jpg/02/59/31/70/360_F_259317013_nJJaBgGGzvXMd6cAyLd6yMJtbdnd61wk.jpg" alt="To-Do List" class="mt-4 w-full h-64 object-cover rounded-lg">
+        <a href="viewtask.html">
         <button class="mt-4 w-full py-2 bg-blue-500 rounded-xl hover:bg-blue-600 text-white font-semibold">View Tasks</button>
+      </a>
       </div>
     </div>
 

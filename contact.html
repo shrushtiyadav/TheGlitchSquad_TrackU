@@ -1,19 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us - WellnessTracker</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      height: 100vh;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: url('https://i.pinimg.com/736x/3c/24/46/3c24462450c2a902bf7e18f3d9aada81.jpg') no-repeat center center/cover;
+    }
+
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      color: #1E3A8A;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav a {
+      display: inline-block;
+      background-color: #e5e7eb;
+      padding: 12px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 16px;
+      color: #4b5563;
+      margin-left: 16px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #2563eb;
+      color: white;
+    }
+
+    .contact-wrapper {
       display: flex;
       justify-content: center;
       align-items: center;
+      min-height: calc(100vh - 80px); /* Adjusting for header height */
+      padding: 60px 20px;
     }
 
     .contact-box {
@@ -26,16 +66,14 @@
       text-align: center;
     }
 
-    /* Oval background around the heading */
     .contact-box h2 {
       color: white;
       margin-bottom: 16px;
       font-size: 28px;
       padding: 12px 32px;
       background-color: #1E3A8A;
-      border-radius: 50px; /* Makes the background oval */
-      display: inline-block; /* Ensure the background fits the text size */
-      
+      border-radius: 50px;
+      display: inline-block;
     }
 
     .contact-box p {
@@ -66,7 +104,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      backdrop-filter: blur(10px); 
+      backdrop-filter: blur(10px);
       border-radius: 50px;
       z-index: -1;
       transition: all 0.3s ease;
@@ -88,25 +126,56 @@
       text-align: center;
       font-size: 14px;
       color: #6b7280;
-      margin-top: 40px;
+      padding: 20px;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 8px 0;
+        text-align: center;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="contact-box">
-    <h2>Contact Us</h2>
-    <p>We'd love to hear from you! For any queries, feel free to reach out.</p>
-    
-    <p class="phone">📞 +91 9270117847</p>
+  <!-- Navigation/Header -->
+  <header>
+    <h1 onclick="window.location.href='index.html'">Track U</h1>
+    <nav>
+      <a href="login.html">Login</a>
+      <a href="profilesetting.html">Profile</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
 
-    <p>Or drop us an email at:<br>
-      <a href="mailto:support@TrackU.com">support@TrackU.com</a>
-    </p>
+  <!-- Contact Section -->
+  <div class="contact-wrapper">
+    <div class="contact-box">
+      <h2>Contact Us</h2>
+      <p>We'd love to hear from you! For any queries, feel free to reach out.</p>
 
-    <p>Available: Monday – Saturday<br>10:00 AM – 6:00 PM</p>
+      <p class="phone">📞 +91 9270117847</p>
 
+      <p>Or drop us an email at:<br>
+        <a href="mailto:support@TrackU.com">support@TrackU.com</a>
+      </p>
+
+      <p>Available: Monday – Saturday<br>10:00 AM – 6:00 PM</p>
+    </div>
   </div>
+
+  <!-- Optional Footer -->
+  <footer>
+    &copy; 2025 Track U. All rights reserved.
+  </footer>
 
 </body>
 </html>

@@ -122,9 +122,50 @@
       font-size: 0.9em;
       margin-top: 40px;
     }
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      color: #1E3A8A;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav a {
+      display: inline-block;
+      background-color: #e5e7eb;
+      padding: 12px 24px;
+      border-radius: 50px;  /* Oval shape */
+      text-decoration: none;
+      font-size: 16px;
+      color: #4b5563;
+      margin-left: 16px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #2563eb;  /* Change color on hover */
+      color: white;
+    }
   </style>
 </head>
 <body>
+  
+  <header>
+    <h1 onclick="window.location.href='index.html'">Track U</h1>
+    <nav>
+      <a href="login.html">Login</a>
+      <a href="profilesetting.html">Profile</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
 
   <!-- Hero Image -->
   <section class="hero-image">

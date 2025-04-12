@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Planner - Track U</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #e0e7ff, #f3f4f6);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #ffffff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      color: #1E3A8A;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    nav a {
+      text-decoration: none;
+      margin-left: 20px;
+      padding: 10px 20px;
+      background-color: #e5e7eb;
+      border-radius: 50px;
+      color: #4b5563;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #2563eb;
+      color: #fff;
+    }
+
+    .planner-container {
+      max-width: 700px;
+      margin: 60px auto;
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .planner-container h2 {
+      color: #1E3A8A;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    button {
+      background-color: #1E3A8A;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #3f63c8;
+    }
+
+    .task-list {
+      margin-top: 30px;
+    }
+
+    .task-item {
+      background-color: #f1f5f9;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      border-left: 5px solid #1E3A8A;
+    }
+
+    .task-item h4 {
+      margin: 0 0 5px;
+      color: #1E3A8A;
+    }
+
+    .task-item p {
+      margin: 0;
+      color: #374151;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #6b7280;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      .planner-container {
+        padding: 20px;
+        margin: 40px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1 onclick="window.location.href='index.html'">Track U</h1>
+    <nav>
+      <a href="login.html">Login</a>
+      <a href="profilesetting.html">Profile</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <!-- Study Planner -->
+  <section class="planner-container">
+    <h2>📘 Study Planner</h2>
+    <form id="studyForm">
+      <input type="text" id="subject" placeholder="Enter subject/topic" required>
+      <textarea id="details" placeholder="Add study notes or task details..." rows="3" required></textarea>
+      <input type="datetime-local" id="schedule" required>
+      <button type="submit">➕ Add Task</button>
+    </form>
+
+    <div class="task-list" id="taskList">
+      <!-- Tasks will appear here -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Track U | All rights reserved.
+  </footer>
+
+  <!-- JS -->
+  <script>
+    const form = document.getElementById('studyForm');
+    const taskList = document.getElementById('taskList');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const subject = document.getElementById('subject').value.trim();
+      const details = document.getElementById('details').value.trim();
+      const schedule = document.getElementById('schedule').value;
+
+      if (!subject || !details || !schedule) return;
+
+      const taskItem = document.createElement('div');
+      taskItem.className = 'task-item';
+      taskItem.innerHTML = `
+        <h4>${subject}</h4>
+        <p>${details}</p>
+        <small>🕒 ${new Date(schedule).toLocaleString()}</small>
+      `;
+
+      taskList.appendChild(taskItem);
+
+      // Reset form
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
