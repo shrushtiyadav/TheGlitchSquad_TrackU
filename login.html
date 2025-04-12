@@ -3,37 +3,142 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Student Mental Wellness & Productivity Tracker</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Login - WellnessTracker</title>
+
+  <!-- Internal CSS -->
   <style>
     body {
-      background-image: url('https://i.pinimg.com/736x/3c/24/46/3c24462450c2a902bf7e18f3d9aada81.jpg');
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      background: url('https://i.pinimg.com/736x/3c/24/46/3c24462450c2a902bf7e18f3d9aada81.jpg') no-repeat center center/cover;
       background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+    }
+
+    .login-container {
+      background-color: rgba(179, 176, 176, 0.8); /* Translucent white */
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      backdrop-filter: blur(10px); /* Apply blur effect */
+      z-index: 2;
+    }
+
+    .login-container h2 {
+      color: #1E3A8A;
+      font-size: 28px;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: #4b5563;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #f9fafb;
+      margin-top: 8px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #2563eb;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      background-color: #1E3A8A;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .submit-btn:hover {
+      background-color: #1d4ed8;
+      transform: scale(1.05);
+    }
+
+    .footer-link {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #374151;
+    }
+
+    .footer-link a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-link a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #ffffff;
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid #e5e7eb;
+      color: #6b7280;
+      font-size: 14px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
     }
   </style>
 </head>
-<body class="flex items-center justify-center min-h-screen bg-black/60">
-  <div class="w-full max-w-md p-8 space-y-6 bg-white/90 backdrop-blur-lg rounded-3xl shadow-2xl">
-    <h2 class="text-3xl font-bold text-center text-blue-700">Welcome Back!</h2>
-    <p class="text-center text-gray-600">Sign in to continue tracking your wellness and productivity 🌿</p>
-    <form class="space-y-5">
-      <div>
-        <label class="block mb-1 text-sm font-semibold text-gray-700">Email</label>
-        <input type="email" required class="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50">
-      </div>
-      <div>
-        <label class="block mb-1 text-sm font-semibold text-gray-700">Password</label>
-        <input type="password" required class="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50">
-      </div>
-      <button type="submit" class="w-full px-4 py-2 text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-green-400 rounded-xl hover:opacity-90">
-        Login
-      </button>
-      <p class="text-sm text-center text-gray-700">
-        Don't have an account? <a href="#" class="text-blue-600 hover:underline">Sign Up</a>
-      </p>
-    </form>
-  </div>
+
+<body>
+
+  <!-- Login Section -->
+  <section class="login-container">
+    <h2>Welcome Back</h2>
+
+    <!-- Email Input -->
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    </div>
+
+    <!-- Password Input -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="submit-btn">Login</button>
+
+    <!-- Sign Up Link -->
+    <div class="footer-link">
+      Don't have an account? <a href="#">Sign up here</a>
+    </div>
+  </section>
+
 </body>
 </html>

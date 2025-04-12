@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - WellnessTracker</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://i.pinimg.com/736x/3c/24/46/3c24462450c2a902bf7e18f3d9aada81.jpg') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .contact-box {
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      max-width: 500px;
+      text-align: center;
+    }
+
+    /* Oval background around the heading */
+    .contact-box h2 {
+      color: white;
+      margin-bottom: 16px;
+      font-size: 28px;
+      padding: 12px 32px;
+      background-color: #1E3A8A;
+      border-radius: 50px; /* Makes the background oval */
+      display: inline-block; /* Ensure the background fits the text size */
+      
+    }
+
+    .contact-box p {
+      color: #374151;
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    .contact-box .phone {
+      font-size: 20px;
+      font-weight: bold;
+      color: #2563eb;
+      margin: 15px 0;
+    }
+
+    .contact-box a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      display: inline-block;
+    }
+
+    .contact-box a::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      backdrop-filter: blur(10px); 
+      border-radius: 50px;
+      z-index: -1;
+      transition: all 0.3s ease;
+      transform: scaleX(0);
+      transform-origin: right;
+    }
+
+    .contact-box a:hover::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .contact-box a:hover {
+      color: #5c9eed;
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: #6b7280;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contact-box">
+    <h2>Contact Us</h2>
+    <p>We'd love to hear from you! For any queries, feel free to reach out.</p>
+    
+    <p class="phone">📞 +91 9270117847</p>
+
+    <p>Or drop us an email at:<br>
+      <a href="mailto:support@TrackU.com">support@TrackU.com</a>
+    </p>
+
+    <p>Available: Monday – Saturday<br>10:00 AM – 6:00 PM</p>
+
+  </div>
+
+</body>
+</html>
