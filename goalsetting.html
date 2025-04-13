@@ -2,179 +2,256 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Set Academic & Wellness Goals</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study Planner Guide</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
+    * {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to right, #f0faff, #f9fff9);
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+      overflow-x: hidden;
+    }
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #c3c3e2, #f7f5fa);
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -150px;
+      background: #1E3A8A;
+      border-radius: 50%;
+      animation: rise 20s infinite ease-in;
+    }
+
+    .bubble:nth-child(1) { left: 10%; width: 60px; height: 60px; animation-duration: 25s; }
+    .bubble:nth-child(2) { left: 30%; width: 40px; height: 40px; animation-duration: 22s; }
+    .bubble:nth-child(3) { left: 50%; width: 70px; height: 70px; animation-duration: 30s; }
+    .bubble:nth-child(4) { left: 70%; width: 50px; height: 50px; animation-duration: 24s; }
+    .bubble:nth-child(5) { left: 90%; width: 30px; height: 30px; animation-duration: 20s; }
+
+    @keyframes rise {
+      0% { bottom: -100px; transform: translateX(0) rotate(0deg); }
+      50% { transform: translateX(50px) rotate(180deg); }
+      100% { bottom: 120%; transform: translateX(-50px) rotate(360deg); }
     }
 
     header {
-      background-color: #1e3a8a;
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
+      background-color: #ffffff;
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1.2rem;
-    }
-
-    .goals-wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 40px 20px;
-      gap: 40px;
-    }
-
-    .goal-card {
-      background: #fff;
-      width: 350px;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-
-    .goal-card h2 {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-    }
-
-    .goal-card p {
-      font-size: 1rem;
-      color: #555;
-      margin-bottom: 20px;
-    }
-
-    .goal-card.academic {
-      border-top: 6px solid #0d47a1;
-    }
-
-    .goal-card.wellness {
-      border-top: 6px solid #00897b;
-    }
-
-    label {
-      display: block;
-      margin: 10px 0 5px;
-      font-weight: bold;
-      text-align: left;
-    }
-
-    input[type="text"],
-    input[type="date"] {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-      margin-bottom: 10px;
-    }
-
-    button {
-      background-color: #1e3a8a;
-      color: white;
-      border: none;
-      padding: 12px;
-      width: 100%;
-      border-radius: 8px;
-      font-size: 1rem;
+      color: #1E3A8A;
+      font-size: 24px;
       cursor: pointer;
-      margin-top: 10px;
-      transition: background 0.3s;
     }
 
-    button:hover {
-      background-color: #2b56c0;
+    nav a {
+      background-color: #e5e7eb;
+      padding: 10px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 16px;
+      color: #4b5563;
+      margin-left: 16px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #2563eb;
+      color: white;
+    }
+
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+
+    .planner-container {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .planner-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .planner-step {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .planner-step:hover {
+      transform: translateY(-10px);
+    }
+
+    .planner-step img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .planner-step h3 {
+      color: #1E3A8A;
+      margin-bottom: 10px;
+    }
+
+    .planner-step p {
+      color: #555;
     }
 
     footer {
       text-align: center;
+      font-size: 14px;
+      color: #6b7280;
       padding: 20px;
-      background-color: #eeeeee;
-      color: #555;
-      font-size: 0.95rem;
+      background-color: #f1f1f1;
+      margin-top: 40px;
     }
 
-    @media (max-width: 768px) {
-      .goals-wrapper {
+    @media (max-width: 600px) {
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      nav {
         flex-direction: column;
-        align-items: center;
+        gap: 10px;
+        align-items: flex-end;
       }
     }
   </style>
 </head>
-
 <body>
 
+  <!-- Background Bubbles -->
+  <div class="background">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+
+  <!-- Header -->
   <header>
-    <h1>Set Your Goals 📈💪</h1>
-    <p>Empower yourself academically and focus on your mental wellness.</p>
+    <h1 onclick="window.location.href='index.html'">Track U</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+      <a href="profilesetting.html">Profile</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <section class="goals-wrapper">
-
-    <!-- Academic Goal Card -->
-    <div class="goal-card academic">
-      <h2>🎓 Academic Goals</h2>
-      <p>Set your study targets, assignments, and track your academic growth.</p>
-      <form id="academicGoalForm">
-        <label for="academicGoal">Goal</label>
-        <input type="text" id="academicGoal" placeholder="e.g., Complete project report" required />
-
-        <label for="academicDeadline">Deadline</label>
-        <input type="date" id="academicDeadline" required />
-
-        <button type="submit">Set Academic Goal</button>
-      </form>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>📚 Study Planner</h1>
+      <p>"Plan your study, conquer your goals."</p>
     </div>
-
-    <!-- Wellness Goal Card -->
-    <div class="goal-card wellness">
-      <h2>🧘 Wellness Goals</h2>
-      <p>Focus on mindfulness, rest, and habits that support mental health.</p>
-      <form id="wellnessGoalForm">
-        <label for="wellnessGoal">Goal</label>
-        <input type="text" id="wellnessGoal" placeholder="e.g., Meditate 10 minutes daily" required />
-
-        <label for="wellnessDeadline">Deadline</label>
-        <input type="date" id="wellnessDeadline" required />
-
-        <button type="submit">Set Wellness Goal</button>
-      </form>
-    </div>
-
   </section>
 
+  <!-- Study Planner Steps -->
+  <section class="planner-container">
+    <div class="planner-grid">
+
+      <div class="planner-step">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJlBWgUMdn8Nv42lUmG51-Oj9cPULak7gEIA&s" alt="Set Goals">
+        <h3>1. Set Study Goals</h3>
+        <p>Define what you want to achieve today, this week, and this month.</p>
+      </div>
+
+      <div class="planner-step">
+        <img src="https://t3.ftcdn.net/jpg/04/46/95/98/240_F_446959837_ud38y0tq3BLXku5g72xfD4JT087Cz5R7.jpg" alt="Create Timetable">
+        <h3>2. Create a Timetable</h3>
+        <p>Divide your subjects and allocate time slots for focused learning.</p>
+      </div>
+
+      <div class="planner-step">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsO7Q4wv45dadLW6XawBunLB5TopFX3whJ1w&s" alt="Prioritize Tasks">
+        <h3>3. Prioritize Subjects</h3>
+        <p>Focus more time on difficult or high-weightage topics first.</p>
+      </div>
+
+      <div class="planner-step">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5u3tANX4ekLce6grsAUKkbClPVuCOOu0xrw&s" alt="Use Reminders">
+        <h3>4. Set Reminders</h3>
+        <p>Use alarms or calendar notifications to stay on track with your schedule.</p>
+      </div>
+
+      <div class="planner-step">
+        <img src="https://media.istockphoto.com/id/1061077744/photo/take-a-break-motivational-words-quotes-concept.jpg?s=612x612&w=0&k=20&c=4Ur5SUnVVb_MI88wIhE3Waajm2Nj_AKpsNr9pi8MEdU=" alt="Take Breaks">
+        <h3>5. Take Regular Breaks</h3>
+        <p>Apply Pomodoro technique or short breaks to refresh your mind.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    🌟 Remember: Small steps lead to big progress. You've got this!
+    <p>&copy; 2025 Track U. All rights reserved.</p>
   </footer>
-
-  <script>
-    document.getElementById("academicGoalForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const goal = document.getElementById("academicGoal").value;
-      const date = document.getElementById("academicDeadline").value;
-      alert(`✅ Academic Goal Set:\n"${goal}"\nDue by: ${date}`);
-    });
-
-    document.getElementById("wellnessGoalForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const goal = document.getElementById("wellnessGoal").value;
-      const date = document.getElementById("wellnessDeadline").value;
-      alert(`✅ Wellness Goal Set:\n"${goal}"\nDue by: ${date}`);
-    });
-  </script>
 
 </body>
 </html>

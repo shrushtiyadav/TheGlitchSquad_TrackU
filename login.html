@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login - WellnessTracker</title>
 
-  <!-- Internal CSS -->
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -16,20 +15,58 @@
       justify-content: center;
       align-items: center;
       position: relative;
-      background: url('https://i.pinimg.com/736x/3c/24/46/3c24462450c2a902bf7e18f3d9aada81.jpg') no-repeat center center/cover;
+      background: url('https://manage.aimsportal.com/assets/images/setting/1230006724693779.jpg') no-repeat center center/cover;
       background-size: cover;
     }
 
     .login-container {
-      background-color: rgba(179, 176, 176, 0.8); /* Translucent white */
+      background-color: rgba(179, 176, 176, 0.8);
       padding: 40px;
       border-radius: 16px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       width: 100%;
       max-width: 400px;
       text-align: center;
-      backdrop-filter: blur(10px); /* Apply blur effect */
+      position: relative;
+      backdrop-filter: blur(10px);
       z-index: 2;
+    }
+
+    header {
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 16px 32px;
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      right: 16px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 3;
+    }
+
+    header h1 {
+      color: #2563eb;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav a {
+      display: inline-block;
+      background-color: #e5e7eb;
+      padding: 12px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 16px;
+      color: #4b5563;
+      margin-left: 16px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #2563eb;
+      color: white;
     }
 
     .login-container h2 {
@@ -57,7 +94,6 @@
       border: 1px solid #ddd;
       border-radius: 8px;
       background-color: #f9fafb;
-      margin-top: 8px;
     }
 
     input:focus {
@@ -75,28 +111,12 @@
       border-radius: 50px;
       cursor: pointer;
       transition: all 0.3s ease;
-      margin-top: 10px;
+      margin-top: 12px;
     }
 
     .submit-btn:hover {
       background-color: #1d4ed8;
       transform: scale(1.05);
-    }
-
-    .footer-link {
-      margin-top: 20px;
-      font-size: 14px;
-      color: #374151;
-    }
-
-    .footer-link a {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .footer-link a:hover {
-      text-decoration: underline;
     }
 
     footer {
@@ -112,6 +132,16 @@
     }
   </style>
 </head>
+
+<header>
+  <h1 onclick="window.location.href='index.html'">Track U</h1>
+  <nav>
+    <a href="signup.html">Sign Up</a>
+    <a href="profilesetting.html">Profile</a>
+    <a href="contact.html">Contact</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
 
 <body>
 
@@ -133,11 +163,6 @@
 
     <!-- Submit Button -->
     <button type="submit" class="submit-btn">Login</button>
-
-    <!-- Sign Up Link -->
-    <div class="footer-link">
-      Don't have an account? <a href="#">Sign up here</a>
-    </div>
   </section>
 
 </body>
